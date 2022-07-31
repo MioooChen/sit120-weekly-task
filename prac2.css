@@ -1,0 +1,24 @@
+
+/* style for p tag */
+p{
+    color: aquamarine;
+
+}
+
+/* style for title class */
+.title{
+    color: blue;
+
+}
+
+/* style for title class */
+#Jarvan{
+    font-size: small;
+    border: 1px solid green;
+
+}
+
+img{
+    height: 500px;
+    width: 450px; 
+}
