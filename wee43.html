@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.4/dist/vue.js"></script>
+</head>
+<body>
+    <div id="main">
+ 
+        <!-- active manue style  active 类 -->
+        <!-- Call "prevent", To prevent links from jumping when clicked -->
+        
+     
+        <nav v-bind:class="active" v-on:click.prevent>
+     
+            <!-- call "makeActive" when the options link was clicked  -->
+            <a href="#" class="home" v-on:click="makeActive('home')">Home</a>
+            <a href="#" class="projects" v-on:click="makeActive('projects')">Projects</a>
+            <a href="#" class="services" v-on:click="makeActive('services')">Services</a>
+            <a href="#" class="contact" v-on:click="makeActive('contact')">Contact</a>
+        </nav>
+     
+         <!--"active" variable gonna change when you choose different options-->
+        <p>You have chosen <b>{{active}}</b> option.</p>
+    </div>
+    
+</body>
+<script>
+    
+    var demo = new Vue({
+        el: '#main',
+        data: {
+            active: 'home'
+        },
+     
+        // click options
+        methods: {
+            makeActive: function(item){
+                // refresh
+                this.active = item;
+            },
+        },
+    });
+    </script>
+</html>
