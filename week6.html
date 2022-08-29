@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.4/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>User name</p>
+        <input v-model="name" type="text" placeholder="Please enter your user name" />
+        <p>password</p>
+        <input v-model="password" type="password" placeholder="Please enter password" />
+        <p> ------- </p>
+        <p>checkbox</p>
+        <input v-model="checked" type="checkbox" id="checkbox" />
+        <label for="checkbox">{{ checked }}</label>
+        <div></div>
+        <input v-model="checkedNames" type="checkbox" id="a" value="1"/>
+        <label for="a">A</label>
+        <input v-model="checkedNames" type="checkbox" id="b" value="2"/>
+        <label for="a">B</label>
+        <input v-model="checkedNames" type="checkbox" id="c" value="3"/>
+        <label for="a">D</label>
+        <input v-model="checkedNames" type="checkbox" id="e" value="4"/>
+        <label for="a">E</label>
+        <br />
+        <span>Checked value: {{ checkedNames }}</span>
+
+        <div></div>
+        <p>Dynamic selections</p>
+        <select v-model="selected">
+            <option value="" disabled>Please select your favourite fruits:</option>
+            <option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</option>   
+        </select>
+        <span>Selected: {{selected}}</span>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+            message: 'Hello Vue!',
+            name:'mio',
+            password:'12345',
+            checked: false,
+            checkedNames:[],
+            selected:'',
+            cityList: [
+                        {
+                            value: '1',
+                            label: 'apple'
+                        },
+                        {
+                            value: '2',
+                            label: 'kiwi'
+                        },
+                        {
+                            value: '3',
+                            label: 'orange'
+                        },
+                        {
+                            value: '4',
+                            label: 'watermelon'
+                        },                             
+ 
+                ],
+            
+        },
+    });
+    
+</script>
