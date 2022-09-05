@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <article>
+            <aritcle-title slot="todo-title" v-bind:title="title"></aritcle-title>
+            <aritcle-content slot="aritcle-content" v-for="(item,index) in contents" :item="item" :index="index"></aritcle-content>
+        </article>
+
+    </div>
+
+
+    <script type="text/javascript">
+        Vue.component('aritcle', {
+            template: '<div>\
+                <slot name="aritcle-title"></slot>\
+                <ul>\
+                    <slot name="aritcle-content"></slot>\
+                </ul>\
+            </div>'
+        });
+        Vue.component('aritcle-title', {
+            props: ['title'],
+            template: '<div>{{title}}</div>'
+        });
+
+        Vue.component("aritcle-content", {
+            props: ["item", "index"],
+            template: "<li>{{index+1}}.{{item}}</li>"
+        });
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                title: "Mio Chen",
+                contents: ['Apple', 'Peach', 'Orange']
+            }
+        });
+    </script>
+</body>
+
+</html>
